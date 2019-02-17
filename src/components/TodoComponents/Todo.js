@@ -5,7 +5,12 @@ import './Todo.css';
 
 const Todo = (props) => {
     return (
-        <div>{props.todo.task}</div>
+        <div>
+            <div>{props.todo.price}</div>
+            <div>{props.todo.task}</div>
+        </div>
+       
+        
     )
 }
 
