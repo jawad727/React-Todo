@@ -10,6 +10,7 @@ const TodoForm = (props) => {
                 value={props.task}
                 name='task'
                 />
+              
                 <input type="text" 
                 onChange={props.addForm} 
                 value={props.price}
@@ -17,11 +18,12 @@ const TodoForm = (props) => {
                 />
                 <button
                 >Add</button>
-                <button>Delete</button>
+                
             </form>
         </div>
     )
 }
+
 
 export default TodoForm
 

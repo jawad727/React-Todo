@@ -52,17 +52,36 @@ class App extends React.Component {
   addForm = e => {
     console.log(e.target.value)
     this.setState({
-      [e.target.name]: e.target.value,
+      [e.target.name] : e.target.value,
     })
   }
   
+  deleteTask = e => {
+    e.preventDefault();
+    this.setState({
+      todos: this.state.todos.filter(item => {
+        return !item.completed
+      })
+    })
+  }
+  
+  toggleTask = e => {
+    this.setState({
+      todos: this.state.todos.map(task => {
+        if (e === task.id) {
+          return {...task, completed: !task.completed}}
+        return task;
+      })
+    })
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm  addForm={this.addForm} addTask={this.addTask} />
-        <TodoList todos={this.state.todos}/>
-        
+        <TodoList toggleTask={this.toggleTask} todos={this.state.todos}/>
+        <button onClick={this.deleteTask} >Delete</button>
       </div>
     );
   }
